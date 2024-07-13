@@ -37,12 +37,13 @@ int main( void )
 	e = a + c;
 	std::cout << "Result of arithmetic is " <<  e << " and a is still " << a << std::endl;
 
-	Fixed	g;
-	std::cout << "The result of x " << ++g << std::endl;
-	std::cout << "The result of x " << g++ << std::endl;
-	std::cout << "The result of x " << g << std::endl;
+	Fixed	g(5);
+	std::cout << "The result of g " << ++g << std::endl;
+	std::cout << "The result of g " << g++ << std::endl;
+	std::cout << "The result of g " << g << std::endl;
 
-	Fixed::max(a , c);
-	
+	std::cout << "The greater of a and c is " << Fixed::max(a , c) << std::endl;
+	std::cout << "The lesser of a and c is " << Fixed::min(a , c) << std::endl;
+
 	return (0);
 }
