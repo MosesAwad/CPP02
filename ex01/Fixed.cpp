@@ -29,12 +29,21 @@ Fixed::Fixed( const Fixed& other)
 
 Fixed::Fixed( const int value )
 {
-	this->value = value << this->bits;
+	this->value = value << this->bits;	// left shifting is equivalent to * 2^8
 }
-
-// We cannot directly do value << this->bits here
-// cuz value is a float. So what we do instead is
-// value * (1 << this->bits)
+/*
+	We cannot directly do value << this->bits here cuz value is
+	a float. So what we do instead is value * (1 << this->bits).
+	The reason is because doing bitshifting on a float value results
+	in a compilation error. So instead, we just say value * (1 << this->bits)
+	which is exactly the same as value * 256. So technically, we're not
+	bitshifting the actual  value like in Fixed::Fixed( const int value ),
+	we are just bitshifting the 1 by 8 bits to the left to get the equivalent
+	of value * 256. And then that result, we just round it using roundf to
+	get a more accurate value. So if the result is 3763.2, the result is
+	store as 3764 in the value member cuz value is an int. And if it was 
+	3763.8, it would be stored as 3765. That's it!
+*/
 Fixed::Fixed( const float value )
 {
 	this->value = roundf(value * (1 << this->bits));
@@ -71,15 +80,15 @@ int 	Fixed::toInt( void ) const
 {
 	int	result;
 
-	result = this->value >> this->bits;
+	result = this->value >> this->bits;	// this is the equivalent of (/ 2^8).
 	return (result);
 }
 
-// You must cast this->value as a float because
-// in our class, this->value and this->bits are
-// both ints. So, even if result is a float, it
-// would have done integer division and gave us
-// an integer result.
+/*
+	You must cast this->value as a float because in our class, this->value 
+	and this->bits are both ints. So, even if result is a float, it would
+	have done integer division and gave us an integer result.
+*/
 float 	Fixed::toFloat( void ) const
 {
 	float	result;

@@ -41,7 +41,17 @@ Fixed& Fixed::operator=(const Fixed& operand)
 	}
 	return (*this);
 }
-
+/*
+	The const keyword at the end of a function here just means
+	that the member function promises not to modify any member
+	variables of the object on which it is called. Putting const
+	at the end of a function prototype is only applicable for class
+	member functions, that's it. A normal function cannot have the
+	const keyword at the end of it. As for the function  below though,
+	called setRawBits alters the value member of the Fixed class object
+	on which it is called,=; and hence, why it does not have the const 
+	keyword at the end of it.
+*/
 int	Fixed::getRawBits(void) const 
 {
 	std::cout << "getRawBits member function called" << std::endl;
