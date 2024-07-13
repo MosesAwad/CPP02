@@ -33,17 +33,56 @@ int main( void )
 	Fixed const c( 42.42f );
 	Fixed	e;
 
+	std::cout << "\n ---- 4 aithmetic operators test ---- " << std::endl;
 	// e = a.operator+(c);
 	e = a + c;
-	std::cout << "Result of arithmetic is " <<  e << " and a is still " << a << std::endl;
+	std::cout << "Result of + arithmetic is " <<  e << " and a is still " << a << std::endl;
+	e = a - c;
+	std::cout << "Result of - arithmetic is " <<  e << " and a is still " << a << std::endl;
+	e = a * c;
+	std::cout << "Result of * arithmetic is " <<  e << " and a is still " << a << std::endl;
+	e = a / c;
+	std::cout << "Result of / arithmetic is " <<  e << " and a is still " << a << std::endl;
 
+	std::cout << "\n ---- 4 increment/decrement operators test ---- " << std::endl;
 	Fixed	g(5);
 	std::cout << "The result of g " << ++g << std::endl;
 	std::cout << "The result of g " << g++ << std::endl;
 	std::cout << "The result of g " << g << std::endl;
+	
+	std::cout << "The result of g " << --g << std::endl;
+	std::cout << "The result of g " << g-- << std::endl;
+	std::cout << "The result of g " << g << std::endl;
 
+	std::cout << "\n ---- 4 overloaded min, max functions test ---- " << std::endl;
 	std::cout << "The greater of a and c is " << Fixed::max(a , c) << std::endl;
 	std::cout << "The lesser of a and c is " << Fixed::min(a , c) << std::endl;
+
+	const Fixed x( 1234.4321f );
+	const Fixed y( 42.42f );
+	std::cout << "The greater of x and y is " << Fixed::max(x , y) << std::endl;
+	std::cout << "The lesser of x and y is " << Fixed::min(x , y) << std::endl;
+
+	std::cout << "\n ---- 6 comparison operators test ---- " << std::endl;
+	if (a != c)
+		std::cout << "!= operator working correctly " << std::endl;
+
+	Fixed f(5);
+	Fixed h(5);
+	if (f == h)
+		std::cout << "== operator working correctly " << std::endl;
+	if (f >= h)
+		std::cout << "Test 1: >= operator working correctly " << std::endl;	
+	if (g >= h)
+		std::cout << "Test 2: >= operator working correctly " << std::endl;
+	if (f <= h)
+		std::cout << "Test 1: <= operator working correctly " << std::endl;	
+	if (h <= g)
+		std::cout << "Test 2: <= operator working correctly " << std::endl;	
+	if (g > h)
+		std::cout << "> operator working correctly " << std::endl;
+	if (h < g)
+		std::cout << "< operator working correctly " << std::endl;
 
 	return (0);
 }
