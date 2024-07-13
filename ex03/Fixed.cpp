@@ -4,7 +4,7 @@
 // SECTION 1 -- CONSTRUCTORS
 Fixed::Fixed(void)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 	this->value = 0;
 }
 
@@ -24,7 +24,7 @@ Fixed::Fixed(void)
 // SAME NOTES APPLY TO Fixed& Fixed::operator=(const Fixed& operand)
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -44,7 +44,7 @@ Fixed::Fixed(const float value)
 // SECTION 2 -- DESTRUCTOR
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 // SECTION 3 -- COMPARISON OPERATORS OVERLOAD
@@ -88,7 +88,7 @@ Fixed::~Fixed()
 //  the object.
 Fixed& Fixed::operator=(const Fixed& operand)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &operand)
 	{
 		this->value = operand.getRawBits();
@@ -256,13 +256,13 @@ std::ostream& operator<<(std::ostream& o, const Fixed& i)
 // SECTION 7 -- GETTERS AND SETTERS
 int	Fixed::getRawBits(void) const 
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void	Fixed::setRawBits(const int raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 

@@ -25,11 +25,11 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 
 	area = get_triangle_area(a, b, c);
 
-	std::cout << "Big area " << area << "\n";
-		std::cout << "area1 " << sub_area1 << "\n";
-		std::cout << "area2 " << sub_area2 << "\n";
-		std::cout << "area3 " << sub_area3 << "\n";
-	std::cout << "Sum areas " << sub_area1 + sub_area2 + sub_area3 << "\n";
+	// std::cout << "Big area " << area << "\n";
+	// 	std::cout << "area1 " << sub_area1 << "\n";
+	// 	std::cout << "area2 " << sub_area2 << "\n";
+	// 	std::cout << "area3 " << sub_area3 << "\n";
+	// std::cout << "Sum areas " << sub_area1 + sub_area2 + sub_area3 << "\n";
 	if (sub_area1 == 0 || sub_area2 == 0 || sub_area3 == 0)
 		return false;
 	if (area >= sub_area1 + sub_area2 + sub_area3)
